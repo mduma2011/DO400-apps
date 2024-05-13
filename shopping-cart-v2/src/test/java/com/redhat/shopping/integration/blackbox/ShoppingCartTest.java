@@ -22,6 +22,20 @@ import static io.restassured.RestAssured.given;
 @Tag("integration")
 public class ShoppingCartTest {
 
+    @BeforeAll
+    public static void setup() {
+        CatalogStorage mocksStorage = Mockito.mock(InMemoryCatalogStorage.class);
+        
+        Mockito.when(mocksStorage.containsKey(1)).thenReturn(true);
+        Mockito.when(mocksStorage.containsKey(2)).thenReturn(true);
+        Mockito.when(mocksStorage.containsKey(9999)).thenReturn(false);
+        
+        Mockito.when(mocksStorage.get(1)).thenReturn(new Product(1, 100));
+        Mockito.when(mocksStorage.get(2)).thenReturn(new Product(2, 200));
+        
+        QuarkusMock.installMockForType(mocksStorage, CatalogStorage.class);
+    }
+
     private int randomQuantity() {
         return (new Random()).nextInt(10) + 1;
     }
