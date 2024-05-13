@@ -52,7 +52,7 @@ pipeline {
                             ./scripts/deploy-image.sh \
                             -u $QUAY_USR \
                             -n $APP_NAMESPACE \
-                            -t $STAG_TO_DEPLOY
+                            -t $TAG_TO_DEPLOY
                         """
                          
                     }
