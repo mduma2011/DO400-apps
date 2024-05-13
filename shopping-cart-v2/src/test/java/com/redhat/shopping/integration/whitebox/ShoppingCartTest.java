@@ -32,8 +32,7 @@ public class ShoppingCartTest {
         Mockito.when(mocksStorage.containsKey(1)).thenReturn(true);
         Mockito.when(mocksStorage.containsKey(9999)).thenReturn(false);
         
-        Mockito.when(mocksStorage.get(1)).thenReturn(new Product(1, 100));
-        
+        Mockito.when(mocksStorage.get(1)).thenReturn(new Product(1, 100));        
         QuarkusMock.installMockForType(mocksStorage, CatalogStorage.class);
     }
 
