@@ -1,0 +1,13 @@
+pipeline {
+    agent { nonde { label 'maven' } }
+    environment { APP_NAMESPACE = 'wswgiw-recover' }
+    stages {
+        stage('Test') {
+            steps {
+                dir('shopping-cart-v2') {
+                    sh './mvnw clean test'
+                }
+            }
+        }
+    }
+}
