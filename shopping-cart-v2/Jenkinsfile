@@ -1,5 +1,5 @@
 pipeline {
-    agent { nonde { label 'maven' } }
+    agent { node { label 'maven' } }
     environment { APP_NAMESPACE = 'wswgiw-recover' }
     stages {
         stage('Test') {
